@@ -58,31 +58,6 @@ public class Trie{
         return results;
     }
 
-    public boolean removeWord(String wordToRemove){
-        return remove(root, wordToRemove, 0);
-    }
 
-    private boolean remove(TrieNode current, String word, int index){
-        if (index == word.length()){
-            if(!current.isEnd()){
-                return false;
-            }
-            current.setIsEnd(false);
-            return current.getChildren().isEmpty();
-        }
-        char ch = word.charAt(index);
-        TrieNode node = current.getChildren().get(ch);
-        if(node == null){
-            return false;
-        }
-
-        boolean deleteCurrentNode = remove(node, word, index+1);
-
-        if(deleteCurrentNode){
-            current.getChildren();
-            return current.getChildren().isEmpty();
-        }
-        return false;
-    }
 }
 
